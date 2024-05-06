@@ -1,7 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Text;
 
 namespace Image2ZPL.Conversion
@@ -32,7 +30,7 @@ namespace Image2ZPL.Conversion
                 result.AppendFormat("^FO{0},{1}^GFA,{2},{2},{3},", posx, posy, rowdata * dim.Height, rowdata);
                 byte[][] imageData = ConvertImageBinary(dim, rowdata, bmpCompressed);
 
-                byte[] previousRow = null;
+                byte[]? previousRow = null;
                 foreach (byte[] row in imageData)
                 {
                     AppendLine(row, previousRow, result);
@@ -91,7 +89,7 @@ namespace Image2ZPL.Conversion
         /// <param name="row"></param>
         /// <param name="previousRow"></param>
         /// <param name="zb64stream"></param>
-        private static void AppendLine(byte[] row, byte[] previousRow, StringBuilder zb64stream)
+        private static void AppendLine(byte[] row, byte[]? previousRow, StringBuilder zb64stream)
         {
             if (row.All(r => r == 0))
             {
