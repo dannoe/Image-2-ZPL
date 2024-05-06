@@ -13,7 +13,7 @@ namespace TestZPL
 {
     public partial class TestZPL : Form
     {
-        private Bitmap imageToConvert;
+        private Bitmap? imageToConvert;
 
         public TestZPL()
         {
@@ -41,7 +41,8 @@ namespace TestZPL
             tbZPL.Clear();
 
             //In this example I statically set the POS to 20,20 for the sake of demo.
-            tbZPL.Text = Image2ZPL.Convert.BitmapToZPLII(imageToConvert, 20, 20);
+            if (imageToConvert != null)
+                tbZPL.Text = Image2ZPL.Convert.BitmapToZPLII(imageToConvert, 20, 20);
         }
     }
 }
