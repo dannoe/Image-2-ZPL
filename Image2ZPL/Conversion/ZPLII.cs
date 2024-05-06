@@ -89,24 +89,24 @@ namespace Image2ZPL.Conversion
         /// </summary>
         /// <param name="row"></param>
         /// <param name="previousRow"></param>
-        /// <param name="zb64stream"></param>
-        private static void AppendLine(byte[] row, byte[]? previousRow, StringBuilder zb64stream)
+        /// <param name="zb64Stream"></param>
+        private static void AppendLine(byte[] row, byte[]? previousRow, StringBuilder zb64Stream)
         {
             if (row.All(r => r == 0))
             {
-                zb64stream.Append(",");
+                zb64Stream.Append(',');
                 return;
             }
 
             if (row.All(r => r == 0xff))
             {
-                zb64stream.Append("!");
+                zb64Stream.Append('!');
                 return;
             }
 
             if (previousRow != null && MatchByteArray(row, previousRow))
             {
-                zb64stream.Append(":");
+                zb64Stream.Append(':');
                 return;
             }
 
@@ -143,28 +143,28 @@ namespace Image2ZPL.Conversion
                         {
                             if (i % 2 == 1)
                             {
-                                zb64stream.Append("0");
+                                zb64Stream.Append('0');
                             }
-                            zb64stream.Append(",");
+                            zb64Stream.Append(',');
                             return;
                         }
                         else if (pixel == 0xf)
                         {
                             if (i % 2 == 1)
                             {
-                                zb64stream.Append("F");
+                                zb64Stream.Append('F');
                             }
-                            zb64stream.Append("!");
+                            zb64Stream.Append('!');
                             return;
                         }
                     }
                     else
                     {
-                        zb64stream.Append(ConvertZB64(repcount));
+                        zb64Stream.Append(ConvertZB64(repcount));
                         i += repcount - 1;
                     }
                 }
-                zb64stream.Append(pixel.ToString("X"));
+                zb64Stream.Append(pixel.ToString("X"));
             }
         }
 
