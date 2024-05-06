@@ -27,7 +27,8 @@ namespace Image2ZPL.Conversion
             {
                 StringBuilder result = new StringBuilder();
 
-                result.AppendFormat("^FO{0},{1}^GFA,{2},{2},{3},", posx, posy, rowdata * dim.Height, rowdata);
+                result.AppendFormat("^FO{0},{1}^GFA,{2},{2},{3},", posx, posy, bytes, rowdata);
+                
                 byte[][] imageData = ConvertImageBinary(dim, rowdata, bmpCompressed);
 
                 byte[]? previousRow = null;
