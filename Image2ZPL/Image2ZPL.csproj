@@ -7,6 +7,22 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Description>.NET Library that converts BMP, JPG, and PNG images into a ZPLII string for printing on Zebra printers without uploading an image to the printer.</Description>
+    <PackageProjectUrl>https://github.com/dannoe/Image-2-ZPL</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="..\README.md" Pack="true" PackagePath="\"/>
+    <Content Include="..\LICENSE" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="8.0.4"/>
   </ItemGroup>
