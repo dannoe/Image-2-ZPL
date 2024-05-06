@@ -11,6 +11,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageVersion>1.0.1-beta</PackageVersion>
     <Description>.NET Library that converts BMP, JPG, and PNG images into a ZPLII string for printing on Zebra printers without uploading an image to the printer.</Description>
     <PackageProjectUrl>https://github.com/dannoe/Image-2-ZPL</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
