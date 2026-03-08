@@ -28,4 +28,8 @@
     <PackageReference Include="System.Drawing.Common" Version="8.0.4"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Image2ZPL.Core\Image2ZPL.Core.csproj" />
+  </ItemGroup>
+
 </Project>
