@@ -129,7 +129,7 @@ namespace Image2ZPL.Core.Conversion
         internal static string ConvertZB64(int count)
         {
             if (count > 419)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(count), count, "Count must not exceed 419.");
 
             int high = count / 20;
             int low = count % 20;
@@ -152,14 +152,7 @@ namespace Image2ZPL.Core.Conversion
 
         internal static bool MatchByteArray(byte[] row, byte[] lastrow)
         {
-            for (int i = 0; i < row.Length; i++)
-            {
-                if (row[i] != lastrow[i])
-                {
-                    return false;
-                }
-            }
-            return true;
+            return row.AsSpan().SequenceEqual(lastrow.AsSpan());
         }
     }
 }
